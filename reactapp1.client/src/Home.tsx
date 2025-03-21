@@ -26,17 +26,22 @@ const Home = () => {
         fetchWeather();
     }, [cityName]);
 
-    const promiseOptions = () => {
+    // const promiseOptions = () => {
 
+    // }
+
+    const handleChange = (e: any) => {
+        setCityName(e.target.value);
     }
-
+    
     console.log('------->', cityWeather.firstForecast);
 
     return (
         <div className='container' style={{ fontFamily: 'Poppins, sans-serif' }}>
             <div className='backCard gap-4 p-4 shadow-lg'>
-                <div className='gap-2 flex-col' style={{ display: 'flex'}}>
-                    <AsyncSelect cacheOptions defaultOptions loadOptions={promiseOptions}/>
+                <div className='gap-2 flex-col' style={{ display: 'flex' }}>    
+                    {/* <AsyncSelect cacheOptions defaultOptions loadOptions={promiseOptions} onChange={handleChange} /> */}
+                    <input type='text' className='form-control' onChange={handleChange} />
                     <button className='btn btn-danger' type='submit' >Search</button>
                 </div>
                 {cityWeather.current && cityWeather.location != undefined ?
